@@ -1,0 +1,151 @@
+JFDML JFormDesigner: "7.0.2.0.298" Java: "13.0.2" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {comp jPanel1:::p:405:p}"
+			"$verticalGroup": "par l {seq l {comp jPanel1:::::x, space :::p}}"
+		} ) {
+			name: "this"
+			"defaultCloseOperation": 3
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq {space :::p, par l {seq {space :0:0:x, comp jLabel1:::p:232:p, space :p:83:p}, seq t {par t {seq l {comp jLabel4:::p:102:p, space :::p, comp txt_Address:::::x}, seq {comp btn_Cancel:::p:115:p, space u:::p, comp btn_Clear:::p:115:p, space :::x, comp btn_Add:::p:115:p}, seq l {comp jLabel2:::p:102:p, space :::p, comp txt_First_Name:::::x}, seq l {comp jLabel3:::p:102:p, space :::p, comp txt_Last_Name:::::x}, seq l {par l {comp jLabel5:::p:102:p, comp jLabel6:::p:102:p, comp jLabel7::l:p:102:p}, space :::p, par l {comp jScrollPane1::l:::x, seq l {par l {comp cmb_M_Phone:::p:57:p, comp cmb_H_Phone:::p:57:p}, space :::p, par l {comp txt_Phone_H::t:::x, seq t {comp txt_Phone_M:::p:194:p, space :0:0:x}}}}}}, space :p:48:p}}}}"
+				"$verticalGroup": "par l {seq l {space :::p, comp jLabel1:::p::p, space s:::p, par b {comp jLabel2::b:p::p, comp txt_First_Name::b:p::p}, space s:::p, par b {comp jLabel3::b:p::p, comp txt_Last_Name::b:p::p}, space s:::p, par l:::p {par b {comp jLabel5::b:p::p, comp txt_Phone_M::b:p::p}, comp cmb_M_Phone:::::x}, space :::x, par l {par l:t {comp jLabel6:::p::p, comp txt_Phone_H:::p::p}, comp cmb_H_Phone::t:p:23:p}, space s:::p, par l {comp jLabel4:::p::p, comp txt_Address:::p::p}, space s:::p, par l {seq l {space :p:31:p, comp jLabel7:::p::p}, comp jScrollPane1::l:p:73:p}, space s:::p, par b {comp btn_Add::b:p:43:p, comp btn_Cancel::b:p:43:p, comp btn_Clear::b:p:43:p}, space :p:20:p}}"
+			} ) {
+				name: "jPanel1"
+				"background": new java.awt.Color( 204, 204, 255, 255 )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "jLabel1"
+					"font": new java.awt.Font( "Arial Black", 0, 36 )
+					"foreground": new java.awt.Color( 51, 0, 204, 255 )
+					"text": "New Client"
+					"toolTipText": ""
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "jLabel2"
+					"font": new java.awt.Font( "Arial", 1, 14 )
+					"text": "First Name:"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "jLabel3"
+					"font": new java.awt.Font( "Arial", 1, 14 )
+					"text": "Last Name:"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "jLabel4"
+					"font": new java.awt.Font( "Arial", 1, 14 )
+					"text": "Address:"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "jLabel5"
+					"font": new java.awt.Font( "Arial", 1, 14 )
+					"text": "Mobile Phone:"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "jLabel6"
+					"font": new java.awt.Font( "Arial", 1, 14 )
+					"text": "Phone (Home):"
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "txt_First_Name"
+					"font": new java.awt.Font( "Tahoma", 0, 14 )
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "txt_First_NameActionPerformed", true ) )
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "txt_Last_Name"
+					"font": new java.awt.Font( "Tahoma", 0, 14 )
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "txt_Phone_M"
+					"font": new java.awt.Font( "Tahoma", 0, 14 )
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "txt_Phone_MActionPerformed", true ) )
+					addEvent( new FormEvent( "java.awt.event.KeyListener", "keyTyped", "txt_Phone_MKeyTyped", true ) )
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "txt_Phone_H"
+					"font": new java.awt.Font( "Tahoma", 0, 14 )
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "txt_Phone_HActionPerformed", true ) )
+					addEvent( new FormEvent( "java.awt.event.KeyListener", "keyTyped", "txt_Phone_HKeyTyped", true ) )
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "txt_Address"
+					"font": new java.awt.Font( "Tahoma", 0, 14 )
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "txt_AddressActionPerformed", true ) )
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "jLabel7"
+					"font": new java.awt.Font( "Arial", 1, 14 )
+					"text": "Comments:"
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "btn_Add"
+					"font": new java.awt.Font( "Arial Black", 0, 14 )
+					"text": "Add"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "btn_AddActionPerformed", true ) )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "btn_Cancel"
+					"font": new java.awt.Font( "Arial Black", 0, 14 )
+					"text": "Cancel"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "btn_CancelActionPerformed", true ) )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "btn_Clear"
+					"font": new java.awt.Font( "Arial Black", 0, 14 )
+					"text": "Clear"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "btn_ClearActionPerformed", true ) )
+				} )
+				add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+					name: "jScrollPane1"
+					add( new FormComponent( "javax.swing.JTextArea" ) {
+						name: "txt_Comments"
+						"columns": 20
+						"lineWrap": true
+						"rows": 5
+					} )
+				} )
+				add( new FormComponent( "javax.swing.JComboBox" ) {
+					name: "cmb_M_Phone"
+					"model": new javax.swing.DefaultComboBoxModel {
+						selectedItem: "050"
+						addElement( "050" )
+						addElement( "052" )
+						addElement( "053" )
+						addElement( "054" )
+						addElement( "055" )
+						addElement( "058" )
+					}
+					auxiliary() {
+						"JavaCodeGenerator.typeParameters": "String"
+					}
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "cmb_M_PhoneActionPerformed", true ) )
+				} )
+				add( new FormComponent( "javax.swing.JComboBox" ) {
+					name: "cmb_H_Phone"
+					"model": new javax.swing.DefaultComboBoxModel {
+						selectedItem: "02"
+						addElement( "02" )
+						addElement( "03" )
+						addElement( "04" )
+						addElement( "06" )
+						addElement( "07" )
+						addElement( "08" )
+						addElement( "09" )
+						addElement( "072" )
+						addElement( " " )
+						addElement( " " )
+					}
+					auxiliary() {
+						"JavaCodeGenerator.typeParameters": "String"
+					}
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "cmb_H_PhoneActionPerformed", true ) )
+				} )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"size": new java.awt.Dimension( 400, 460 )
+			"location": new java.awt.Point( 0, 0 )
+		} )
+	}
+}
+

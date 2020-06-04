@@ -1,0 +1,124 @@
+JFDML JFormDesigner: "7.0.2.0.298" Java: "13.0.2" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq {comp jPanel2:::p::p, space :0:504:x}, comp jPanel1:::::x}"
+			"$verticalGroup": "par l {seq l {comp jPanel1:::p::p, space :::p, comp jPanel2:::p::p, space ::170:x}}"
+		} ) {
+			name: "this"
+			"defaultCloseOperation": 3
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq l {space :p:101:p, comp jLabel1:::p::p, space ::265:x}, seq l {comp lbl_welcome:::p::p, space :0:0:x}}"
+				"$verticalGroup": "par l {seq l {comp lbl_welcome:::p::p, space :::p, comp jLabel1:::p::p, space :::x}}"
+			} ) {
+				name: "jPanel1"
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "jLabel1"
+					"font": new java.awt.Font( "Arial", 1, 36 )
+					"text": "Order Management"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "lbl_welcome"
+					"font": new java.awt.Font( "Tahoma", 1, 14 )
+					"foreground": new java.awt.Color( 0, 0, 255, 255 )
+					"text": "Welcome <#####>"
+					auxiliary() {
+						"JavaCodeGenerator.variableModifiers": 9
+					}
+				} )
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {comp jLabel2::::189:x, seq {par l:::p {comp lbl_Suppliers_c::l::119:x, comp lbl_Products_c::l:::x, comp lbl_Orders_c::l:::x, comp lbl_Clients_c::l:::x}, space :0:0:x}}"
+				"$verticalGroup": "par l {seq l {comp jLabel2:::p:34:p, space u:::p, comp lbl_Clients_c:::p::p, space u:::p, comp lbl_Suppliers_c:::p::p, space u:::p, comp lbl_Products_c:::p::p, space u:::p, comp lbl_Orders_c:::p::p, space :0:31:x}}"
+			} ) {
+				name: "jPanel2"
+				"background": new java.awt.Color( 204, 204, 255, 255 )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "jLabel2"
+					"font": new java.awt.Font( "Tahoma", 1, 36 )
+					"text": "Statistics:"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "lbl_Clients_c"
+					"font": new java.awt.Font( "Tahoma", 1, 12 )
+					"text": "Clients count:"
+					auxiliary() {
+						"JavaCodeGenerator.variableModifiers": 9
+					}
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "lbl_Suppliers_c"
+					"font": new java.awt.Font( "Tahoma", 1, 12 )
+					"text": "Suppliers count:"
+					auxiliary() {
+						"JavaCodeGenerator.variableModifiers": 9
+					}
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "lbl_Products_c"
+					"font": new java.awt.Font( "Tahoma", 1, 12 )
+					"text": "Products count:"
+					auxiliary() {
+						"JavaCodeGenerator.variableModifiers": 9
+					}
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "lbl_Orders_c"
+					"font": new java.awt.Font( "Tahoma", 1, 12 )
+					"text": "orders count:"
+					auxiliary() {
+						"JavaCodeGenerator.variableModifiers": 9
+					}
+				} )
+			} )
+			menuBar: new FormContainer( "javax.swing.JMenuBar", new FormLayoutManager( class javax.swing.JMenuBar ) ) {
+				name: "jMenuBar1"
+				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+					name: "jMenu1"
+					"text": "File"
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "jMenuItem_File_Save_As"
+						"text": "Save As"
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "jMenuItem_File_Save"
+						"text": "Save"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jMenuItem_File_SaveActionPerformed", true ) )
+					} )
+				} )
+				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+					name: "jMenu2"
+					"text": "Edit"
+				} )
+				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+					name: "jMenu_add"
+					"text": "Add"
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "jMenuItem_Add_Client"
+						"text": "Client"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jMenuItem_Add_ClientActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "jMenuItem_Add_Supplier"
+						"text": "Supplier"
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "jMenuItem_Add_Product"
+						"text": "Product"
+					} )
+				} )
+			}
+		}, new FormLayoutConstraints( null ) {
+			"size": new java.awt.Dimension( 695, 475 )
+			"location": new java.awt.Point( 0, 0 )
+		} )
+		add( new FormComponent( "javax.swing.JMenuItem" ) {
+			name: "jMenuItem1"
+			"text": "jMenuItem1"
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 310 )
+		} )
+	}
+}

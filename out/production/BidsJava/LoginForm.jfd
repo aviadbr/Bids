@@ -1,0 +1,65 @@
+JFDML JFormDesigner: "7.0.2.0.298" Java: "13.0.2" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq {par t {seq t {space :::p, comp jButton_Cancel:::p:95:p, space s:::p, comp jButton_Login:::p:95:p}, seq l {space :p:24:p, par t {comp label_U:::p::p, comp label_P:::p::p}, space u:::p, par l {comp jLabel1:::p:66:p, par l:::p {comp jTextField_Username:::::x, comp jPasswordField::::138:x}}}}, space :::p, par l {comp lbl_U:::p:34:p, comp lbl_P:::p:34:p}}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp jLabel1:::p::p, space :p:17:p, par t {par b {comp label_P::b:p::p, comp jPasswordField::b:p::p, comp lbl_P::b:p:14:p}, seq {par b {comp label_U::b:p::p, comp jTextField_Username::b:p::p, comp lbl_U::b:p:14:p}, space :p:38:p}}, space ::99:x, par b {comp jButton_Cancel::b:p:31:p, comp jButton_Login::b:p:31:p}, space :p:21:p}}"
+		} ) {
+			name: "this"
+			"defaultCloseOperation": 3
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "jLabel1"
+				"font": new java.awt.Font( "Arial", 1, 24 )
+				"text": "Login"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label_U"
+				"font": new java.awt.Font( "Tahoma", 1, 14 )
+				"text": "Username:"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label_P"
+				"font": new java.awt.Font( "Tahoma", 1, 14 )
+				"text": "Password:"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "jTextField_Username"
+				"font": new java.awt.Font( "Tahoma", 0, 14 )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jTextField_UsernameActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JPasswordField" ) {
+				name: "jPasswordField"
+				"font": new java.awt.Font( "Tahoma", 0, 14 )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "jButton_Login"
+				"font": new java.awt.Font( "Tahoma", 1, 12 )
+				"text": "Login"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jButton_LoginActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "jButton_Cancel"
+				"font": new java.awt.Font( "Tahoma", 1, 12 )
+				"text": "Cancel"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jButton_CancelActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "lbl_U"
+				"font": new java.awt.Font( "Tahoma", 1, 14 )
+				"foreground": new java.awt.Color( 255, 0, 51, 255 )
+				"text": "*"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "lbl_P"
+				"font": new java.awt.Font( "Tahoma", 1, 14 )
+				"foreground": new java.awt.Color( 255, 0, 51, 255 )
+				"text": "*"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"size": new java.awt.Dimension( 335, 300 )
+			"location": new java.awt.Point( 0, 0 )
+		} )
+	}
+}
