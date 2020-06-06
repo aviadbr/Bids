@@ -20,7 +20,7 @@ import javax.swing.LayoutStyle;
 
 /**
  *
- * @author �?ביעד
+ * @author Aviad
  */
 public class LoginForm extends javax.swing.JFrame {
 
@@ -29,6 +29,7 @@ public class LoginForm extends javax.swing.JFrame {
      */
     public LoginForm() {                
         initComponents();
+        jButton_Login.requestFocus();
         this.setLocationRelativeTo(null);
         lbl_U.setVisible(false);
         lbl_P.setVisible(false);
@@ -41,113 +42,119 @@ public class LoginForm extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-	// Generated using JFormDesigner Evaluation license - Aviad Brown
-	private void initComponents() {
-		jLabel1 = new JLabel();
-		label_U = new JLabel();
-		label_P = new JLabel();
-		jTextField_Username = new JTextField();
-		jPasswordField = new JPasswordField();
-		jButton_Login = new JButton();
-		jButton_Cancel = new JButton();
-		lbl_U = new JLabel();
-		lbl_P = new JLabel();
+    private void initComponents() {
 
-		//======== this ========
-		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		Container contentPane = getContentPane();
+        jLabel1 = new javax.swing.JLabel();
+        label_U = new javax.swing.JLabel();
+        label_P = new javax.swing.JLabel();
+        jTextField_Username = new javax.swing.JTextField();
+        jPasswordField = new javax.swing.JPasswordField();
+        jButton_Login = new javax.swing.JButton();
+        jButton_Cancel = new javax.swing.JButton();
+        lbl_U = new javax.swing.JLabel();
+        lbl_P = new javax.swing.JLabel();
 
-		//---- jLabel1 ----
-		jLabel1.setFont(new Font("Arial", Font.BOLD, 24));
-		jLabel1.setText("Login");
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-		//---- label_U ----
-		label_U.setFont(new Font("Tahoma", Font.BOLD, 14));
-		label_U.setText("Username:");
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel1.setText("Login");
 
-		//---- label_P ----
-		label_P.setFont(new Font("Tahoma", Font.BOLD, 14));
-		label_P.setText("Password:");
+        label_U.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        label_U.setText("Username:");
 
-		//---- jTextField_Username ----
-		jTextField_Username.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		jTextField_Username.addActionListener(e -> jTextField_UsernameActionPerformed(e));
+        label_P.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        label_P.setText("Password:");
 
-		//---- jPasswordField ----
-		jPasswordField.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        jTextField_Username.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField_Username.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField_UsernameActionPerformed(evt);
+            }
+        });
 
-		//---- jButton_Login ----
-		jButton_Login.setFont(new Font("Tahoma", Font.BOLD, 12));
-		jButton_Login.setText("Login");
-		jButton_Login.addActionListener(e -> jButton_LoginActionPerformed(e));
+        jPasswordField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-		//---- jButton_Cancel ----
-		jButton_Cancel.setFont(new Font("Tahoma", Font.BOLD, 12));
-		jButton_Cancel.setText("Cancel");
-		jButton_Cancel.addActionListener(e -> jButton_CancelActionPerformed(e));
+        jButton_Login.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton_Login.setText("Login");
+        jButton_Login.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jButton_LoginFocusGained(evt);
+            }
+        });
+        jButton_Login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_LoginActionPerformed(evt);
+            }
+        });
 
-		//---- lbl_U ----
-		lbl_U.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lbl_U.setForeground(new Color(255, 0, 51));
-		lbl_U.setText("*");
+        jButton_Cancel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton_Cancel.setText("Cancel");
+        jButton_Cancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_CancelActionPerformed(evt);
+            }
+        });
 
-		//---- lbl_P ----
-		lbl_P.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lbl_P.setForeground(new Color(255, 0, 51));
-		lbl_P.setText("*");
+        lbl_U.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbl_U.setForeground(new java.awt.Color(255, 0, 51));
+        lbl_U.setText("*");
 
-		GroupLayout contentPaneLayout = new GroupLayout(contentPane);
-		contentPane.setLayout(contentPaneLayout);
-		contentPaneLayout.setHorizontalGroup(
-			contentPaneLayout.createParallelGroup()
-				.addGroup(contentPaneLayout.createSequentialGroup()
-					.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-						.addGroup(contentPaneLayout.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(jButton_Cancel, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
-							.addGap(18, 18, 18)
-							.addComponent(jButton_Login, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE))
-						.addGroup(GroupLayout.Alignment.LEADING, contentPaneLayout.createSequentialGroup()
-							.addGap(24, 24, 24)
-							.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-								.addComponent(label_U)
-								.addComponent(label_P))
-							.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-							.addGroup(contentPaneLayout.createParallelGroup()
-								.addComponent(jLabel1, GroupLayout.PREFERRED_SIZE, 66, GroupLayout.PREFERRED_SIZE)
-								.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-									.addComponent(jTextField_Username)
-									.addComponent(jPasswordField, GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)))))
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addGroup(contentPaneLayout.createParallelGroup()
-						.addComponent(lbl_U, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lbl_P, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)))
-		);
-		contentPaneLayout.setVerticalGroup(
-			contentPaneLayout.createParallelGroup()
-				.addGroup(contentPaneLayout.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(jLabel1)
-					.addGap(17, 17, 17)
-					.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-						.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-							.addComponent(label_P)
-							.addComponent(jPasswordField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addComponent(lbl_P, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE))
-						.addGroup(contentPaneLayout.createSequentialGroup()
-							.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-								.addComponent(label_U)
-								.addComponent(jTextField_Username, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lbl_U, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE))
-							.addGap(38, 38, 38)))
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
-					.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-						.addComponent(jButton_Cancel, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
-						.addComponent(jButton_Login, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE))
-					.addGap(21, 21, 21))
-		);
-		pack();
-		setLocationRelativeTo(getOwner());
+        lbl_P.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbl_P.setForeground(new java.awt.Color(255, 0, 51));
+        lbl_P.setText("*");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton_Cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton_Login, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(label_U)
+                            .addComponent(label_P))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jTextField_Username)
+                                .addComponent(jPasswordField, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl_U, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_P, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(17, 17, 17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(label_P)
+                        .addComponent(jPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbl_P, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(label_U)
+                            .addComponent(jTextField_Username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_U, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(38, 38, 38)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton_Cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_Login, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21))
+        );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField_UsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_UsernameActionPerformed
@@ -195,7 +202,7 @@ public class LoginForm extends javax.swing.JFrame {
             }
             else
             {
-                JOptionPane.showMessageDialog(this, "Wrong username or password", "Wrong", JOptionPane.INFORMATION_MESSAGE);
+                handleError.showErrorMessage(true, "Wrong username or password", null);
                 jTextField_Username.setText("");
                 jPasswordField.setText("");
             }
@@ -207,6 +214,10 @@ public class LoginForm extends javax.swing.JFrame {
     private void jButton_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_CancelActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButton_CancelActionPerformed
+
+    private void jButton_LoginFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jButton_LoginFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_LoginFocusGained
 
     /**
      * @param args the command line arguments
@@ -244,16 +255,15 @@ public class LoginForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-	// Generated using JFormDesigner Evaluation license - Aviad Brown
-	private JLabel jLabel1;
-	private JLabel label_U;
-	private JLabel label_P;
-	private JTextField jTextField_Username;
-	private JPasswordField jPasswordField;
-	private JButton jButton_Login;
-	private JButton jButton_Cancel;
-	private JLabel lbl_U;
-	private JLabel lbl_P;
+    private javax.swing.JButton jButton_Cancel;
+    private javax.swing.JButton jButton_Login;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPasswordField jPasswordField;
+    private javax.swing.JTextField jTextField_Username;
+    private javax.swing.JLabel label_P;
+    private javax.swing.JLabel label_U;
+    private javax.swing.JLabel lbl_P;
+    private javax.swing.JLabel lbl_U;
     // End of variables declaration//GEN-END:variables
 
     private void integertostring() {

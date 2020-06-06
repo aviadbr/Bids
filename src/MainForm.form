@@ -33,6 +33,16 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Edit"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem_Edit_Clients">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Clients"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem_Edit_ClientsActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu_add">
           <Properties>

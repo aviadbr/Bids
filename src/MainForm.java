@@ -10,7 +10,7 @@ import javax.swing.LayoutStyle;
 
 /**
  *
- * @author �?ביעד
+ * @author Aviad
  */
 public class MainForm extends javax.swing.JFrame {
 
@@ -28,192 +28,175 @@ public class MainForm extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-	// Generated using JFormDesigner Evaluation license - Aviad Brown
-	private void initComponents() {
-		jMenuBar1 = new JMenuBar();
-		jMenu1 = new JMenu();
-		jMenuItem_File_Save_As = new JMenuItem();
-		jMenuItem_File_Save = new JMenuItem();
-		jMenu2 = new JMenu();
-		jMenu_add = new JMenu();
-		jMenuItem_Add_Client = new JMenuItem();
-		jMenuItem_Add_Supplier = new JMenuItem();
-		jMenuItem_Add_Product = new JMenuItem();
-		jPanel1 = new JPanel();
-		jLabel1 = new JLabel();
-		lbl_welcome = new JLabel();
-		jPanel2 = new JPanel();
-		jLabel2 = new JLabel();
-		lbl_Clients_c = new JLabel();
-		lbl_Suppliers_c = new JLabel();
-		lbl_Products_c = new JLabel();
-		lbl_Orders_c = new JLabel();
-		jMenuItem1 = new JMenuItem();
+    private void initComponents() {
 
-		//======== this ========
-		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		Container contentPane = getContentPane();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        lbl_welcome = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        lbl_Clients_c = new javax.swing.JLabel();
+        lbl_Suppliers_c = new javax.swing.JLabel();
+        lbl_Products_c = new javax.swing.JLabel();
+        lbl_Orders_c = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem_File_Save_As = new javax.swing.JMenuItem();
+        jMenuItem_File_Save = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem_Edit_Clients = new javax.swing.JMenuItem();
+        jMenu_add = new javax.swing.JMenu();
+        jMenuItem_Add_Client = new javax.swing.JMenuItem();
+        jMenuItem_Add_Supplier = new javax.swing.JMenuItem();
+        jMenuItem_Add_Product = new javax.swing.JMenuItem();
 
-		//======== jMenuBar1 ========
-		{
+        jMenuItem1.setText("jMenuItem1");
 
-			//======== jMenu1 ========
-			{
-				jMenu1.setText("File");
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-				//---- jMenuItem_File_Save_As ----
-				jMenuItem_File_Save_As.setText("Save As");
-				jMenu1.add(jMenuItem_File_Save_As);
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        jLabel1.setText("Order Management");
 
-				//---- jMenuItem_File_Save ----
-				jMenuItem_File_Save.setText("Save");
-				jMenuItem_File_Save.addActionListener(e -> jMenuItem_File_SaveActionPerformed(e));
-				jMenu1.add(jMenuItem_File_Save);
-			}
-			jMenuBar1.add(jMenu1);
+        lbl_welcome.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbl_welcome.setForeground(new java.awt.Color(0, 0, 255));
+        lbl_welcome.setText("Welcome <#####>");
 
-			//======== jMenu2 ========
-			{
-				jMenu2.setText("Edit");
-			}
-			jMenuBar1.add(jMenu2);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(101, 101, 101)
+                .addComponent(jLabel1)
+                .addContainerGap(140, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(lbl_welcome)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(lbl_welcome)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
-			//======== jMenu_add ========
-			{
-				jMenu_add.setText("Add");
+        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
 
-				//---- jMenuItem_Add_Client ----
-				jMenuItem_Add_Client.setText("Client");
-				jMenuItem_Add_Client.addActionListener(e -> jMenuItem_Add_ClientActionPerformed(e));
-				jMenu_add.add(jMenuItem_Add_Client);
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel2.setText("Statistics:");
 
-				//---- jMenuItem_Add_Supplier ----
-				jMenuItem_Add_Supplier.setText("Supplier");
-				jMenu_add.add(jMenuItem_Add_Supplier);
+        lbl_Clients_c.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbl_Clients_c.setText("Clients count:");
 
-				//---- jMenuItem_Add_Product ----
-				jMenuItem_Add_Product.setText("Product");
-				jMenu_add.add(jMenuItem_Add_Product);
-			}
-			jMenuBar1.add(jMenu_add);
-		}
-		setJMenuBar(jMenuBar1);
+        lbl_Suppliers_c.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbl_Suppliers_c.setText("Suppliers count:");
 
-		//======== jPanel1 ========
-		{
-			jPanel1.setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border
-			.EmptyBorder(0,0,0,0), "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn",javax.swing.border.TitledBorder.CENTER,javax
-			.swing.border.TitledBorder.BOTTOM,new java.awt.Font("Dia\u006cog",java.awt.Font.BOLD,
-			12),java.awt.Color.red),jPanel1. getBorder()));jPanel1. addPropertyChangeListener(new java.beans
-			.PropertyChangeListener(){@Override public void propertyChange(java.beans.PropertyChangeEvent e){if("\u0062ord\u0065r".equals(e.
-			getPropertyName()))throw new RuntimeException();}});
+        lbl_Products_c.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbl_Products_c.setText("Products count:");
 
-			//---- jLabel1 ----
-			jLabel1.setFont(new Font("Arial", Font.BOLD, 36));
-			jLabel1.setText("Order Management");
+        lbl_Orders_c.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbl_Orders_c.setText("orders count:");
 
-			//---- lbl_welcome ----
-			lbl_welcome.setFont(new Font("Tahoma", Font.BOLD, 14));
-			lbl_welcome.setForeground(Color.blue);
-			lbl_welcome.setText("Welcome <#####>");
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lbl_Suppliers_c, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                    .addComponent(lbl_Products_c, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbl_Orders_c, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbl_Clients_c, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lbl_Clients_c)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lbl_Suppliers_c)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lbl_Products_c)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lbl_Orders_c)
+                .addGap(0, 31, Short.MAX_VALUE))
+        );
 
-			GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
-			jPanel1.setLayout(jPanel1Layout);
-			jPanel1Layout.setHorizontalGroup(
-				jPanel1Layout.createParallelGroup()
-					.addGroup(jPanel1Layout.createSequentialGroup()
-						.addGap(101, 101, 101)
-						.addComponent(jLabel1)
-						.addContainerGap(265, Short.MAX_VALUE))
-					.addGroup(jPanel1Layout.createSequentialGroup()
-						.addComponent(lbl_welcome)
-						.addGap(0, 0, Short.MAX_VALUE))
-			);
-			jPanel1Layout.setVerticalGroup(
-				jPanel1Layout.createParallelGroup()
-					.addGroup(jPanel1Layout.createSequentialGroup()
-						.addComponent(lbl_welcome)
-						.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-						.addComponent(jLabel1)
-						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-			);
-		}
+        jMenu1.setText("File");
 
-		//======== jPanel2 ========
-		{
-			jPanel2.setBackground(new Color(204, 204, 255));
+        jMenuItem_File_Save_As.setText("Save As");
+        jMenu1.add(jMenuItem_File_Save_As);
 
-			//---- jLabel2 ----
-			jLabel2.setFont(new Font("Tahoma", Font.BOLD, 36));
-			jLabel2.setText("Statistics:");
+        jMenuItem_File_Save.setText("Save");
+        jMenuItem_File_Save.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_File_SaveActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem_File_Save);
 
-			//---- lbl_Clients_c ----
-			lbl_Clients_c.setFont(new Font("Tahoma", Font.BOLD, 12));
-			lbl_Clients_c.setText("Clients count:");
+        jMenuBar1.add(jMenu1);
 
-			//---- lbl_Suppliers_c ----
-			lbl_Suppliers_c.setFont(new Font("Tahoma", Font.BOLD, 12));
-			lbl_Suppliers_c.setText("Suppliers count:");
+        jMenu2.setText("Edit");
 
-			//---- lbl_Products_c ----
-			lbl_Products_c.setFont(new Font("Tahoma", Font.BOLD, 12));
-			lbl_Products_c.setText("Products count:");
+        jMenuItem_Edit_Clients.setText("Clients");
+        jMenuItem_Edit_Clients.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_Edit_ClientsActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem_Edit_Clients);
 
-			//---- lbl_Orders_c ----
-			lbl_Orders_c.setFont(new Font("Tahoma", Font.BOLD, 12));
-			lbl_Orders_c.setText("orders count:");
+        jMenuBar1.add(jMenu2);
 
-			GroupLayout jPanel2Layout = new GroupLayout(jPanel2);
-			jPanel2.setLayout(jPanel2Layout);
-			jPanel2Layout.setHorizontalGroup(
-				jPanel2Layout.createParallelGroup()
-					.addComponent(jLabel2, GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
-					.addGroup(jPanel2Layout.createSequentialGroup()
-						.addGroup(jPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-							.addComponent(lbl_Suppliers_c, GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
-							.addComponent(lbl_Products_c, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-							.addComponent(lbl_Orders_c, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-							.addComponent(lbl_Clients_c, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-						.addGap(0, 0, Short.MAX_VALUE))
-			);
-			jPanel2Layout.setVerticalGroup(
-				jPanel2Layout.createParallelGroup()
-					.addGroup(jPanel2Layout.createSequentialGroup()
-						.addComponent(jLabel2, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
-						.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-						.addComponent(lbl_Clients_c)
-						.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-						.addComponent(lbl_Suppliers_c)
-						.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-						.addComponent(lbl_Products_c)
-						.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-						.addComponent(lbl_Orders_c)
-						.addGap(0, 31, Short.MAX_VALUE))
-			);
-		}
+        jMenu_add.setText("Add");
 
-		GroupLayout contentPaneLayout = new GroupLayout(contentPane);
-		contentPane.setLayout(contentPaneLayout);
-		contentPaneLayout.setHorizontalGroup(
-			contentPaneLayout.createParallelGroup()
-				.addGroup(contentPaneLayout.createSequentialGroup()
-					.addComponent(jPanel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(0, 504, Short.MAX_VALUE))
-				.addComponent(jPanel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-		);
-		contentPaneLayout.setVerticalGroup(
-			contentPaneLayout.createParallelGroup()
-				.addGroup(contentPaneLayout.createSequentialGroup()
-					.addComponent(jPanel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(jPanel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(170, Short.MAX_VALUE))
-		);
-		pack();
-		setLocationRelativeTo(getOwner());
+        jMenuItem_Add_Client.setText("Client");
+        jMenuItem_Add_Client.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_Add_ClientActionPerformed(evt);
+            }
+        });
+        jMenu_add.add(jMenuItem_Add_Client);
 
-		//---- jMenuItem1 ----
-		jMenuItem1.setText("jMenuItem1");
+        jMenuItem_Add_Supplier.setText("Supplier");
+        jMenu_add.add(jMenuItem_Add_Supplier);
+
+        jMenuItem_Add_Product.setText("Product");
+        jMenu_add.add(jMenuItem_Add_Product);
+
+        jMenuBar1.add(jMenu_add);
+
+        setJMenuBar(jMenuBar1);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(169, Short.MAX_VALUE))
+        );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem_File_SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_File_SaveActionPerformed
@@ -225,8 +208,16 @@ public class MainForm extends javax.swing.JFrame {
         ac.setVisible(true);
         ac.pack();
         ac.setLocationRelativeTo(this);
-        
+        ac.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jMenuItem_Add_ClientActionPerformed
+
+    private void jMenuItem_Edit_ClientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_Edit_ClientsActionPerformed
+        manageClientsForm mec = new manageClientsForm();
+        mec.setVisible(true);
+        mec.pack();
+        mec.setLocationRelativeTo(this);
+        mec.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_jMenuItem_Edit_ClientsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -264,25 +255,25 @@ public class MainForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-	// Generated using JFormDesigner Evaluation license - Aviad Brown
-	private JMenuBar jMenuBar1;
-	private JMenu jMenu1;
-	private JMenuItem jMenuItem_File_Save_As;
-	private JMenuItem jMenuItem_File_Save;
-	private JMenu jMenu2;
-	private JMenu jMenu_add;
-	private JMenuItem jMenuItem_Add_Client;
-	private JMenuItem jMenuItem_Add_Supplier;
-	private JMenuItem jMenuItem_Add_Product;
-	private JPanel jPanel1;
-	private JLabel jLabel1;
-	public static JLabel lbl_welcome;
-	private JPanel jPanel2;
-	private JLabel jLabel2;
-	public static JLabel lbl_Clients_c;
-	public static JLabel lbl_Suppliers_c;
-	public static JLabel lbl_Products_c;
-	public static JLabel lbl_Orders_c;
-	private JMenuItem jMenuItem1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem_Add_Client;
+    private javax.swing.JMenuItem jMenuItem_Add_Product;
+    private javax.swing.JMenuItem jMenuItem_Add_Supplier;
+    private javax.swing.JMenuItem jMenuItem_Edit_Clients;
+    private javax.swing.JMenuItem jMenuItem_File_Save;
+    private javax.swing.JMenuItem jMenuItem_File_Save_As;
+    private javax.swing.JMenu jMenu_add;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    public static javax.swing.JLabel lbl_Clients_c;
+    public static javax.swing.JLabel lbl_Orders_c;
+    public static javax.swing.JLabel lbl_Products_c;
+    public static javax.swing.JLabel lbl_Suppliers_c;
+    public static javax.swing.JLabel lbl_welcome;
     // End of variables declaration//GEN-END:variables
 }
