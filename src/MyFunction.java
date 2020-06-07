@@ -1,4 +1,5 @@
 
+import com.mysql.jdbc.PreparedStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -56,5 +57,43 @@ public class MyFunction {
         }
         return true;
     }
+    
+    
+    /*
+        Finds the p_id of a supplier or a client.
+        Parameters are: the c_id/s_id and the type (s for supplier, c for client.
+        Returns the p_id. If failed, return -1.   
+    */
+    public static int findPid(int id,char type) throws SQLException
+    {
+        String tableName, typeID;
+        int p_id= -1;
+        Connection con = MyConnection.getConnection();
+        Statement st;
+        try {
+            st = con.createStatement();    
+            if (type=='c')
+            {
+                tableName = "client";
+                typeID = "c_id";
+            }
+            else if (type=='s')
+            {
+                tableName = "supplier";
+                typeID = "s_id";
+            }
+            else return -1;
 
+            ResultSet rs = st.executeQuery("SELECT p_id FROM " + tableName + " WHERE " + typeID + "=" + String.valueOf(id));
+            while (rs.next())
+            {
+                p_id = rs.getInt(1);
+            }
+            return p_id;
+        } catch (SQLException ex) {
+        handleError.showErrorMessage(true, ex.getMessage(), null);
+        Logger.getLogger(MyFunction.class.getName()).log(Level.SEVERE, null, ex);
+        return -1;
+        }
+    }
 }

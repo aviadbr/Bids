@@ -29,7 +29,7 @@ public class LoginForm extends javax.swing.JFrame {
      */
     public LoginForm() {                
         initComponents();
-        jButton_Login.requestFocus();
+        jTextField_Username.requestFocus();
         this.setLocationRelativeTo(null);
         lbl_U.setVisible(false);
         lbl_P.setVisible(false);

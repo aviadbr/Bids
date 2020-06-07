@@ -9,7 +9,7 @@ import javax.swing.*;
 import javax.swing.GroupLayout;
 import javax.swing.JOptionPane;
 import javax.swing.LayoutStyle;
-
+import javax.swing.table.DefaultTableModel;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -27,6 +27,7 @@ public class AddClient extends javax.swing.JFrame {
     /**
      * Creates new form AddClient
      */
+    client clt = new client();
     public AddClient() {
         initComponents();
     }
@@ -300,6 +301,10 @@ public class AddClient extends javax.swing.JFrame {
         c.insertUpdateDeleteClient('i', null, fname, lname, address, mphone, hphone, comments, date);
         this.dispose();
         MainForm.lbl_Clients_c.setText("Clients count: "+ Integer.toString(MyFunction.countData("client")));
+        manageClientsForm.tbl_clients.setModel(new DefaultTableModel(null, new Object[]{"ID","First Name","First Name",
+                "Mobile Phone","Home Phone","Date Added","Address","Comments"}));
+        clt.fillClientJTable(manageClientsForm.tbl_clients, "");
+        
     }//GEN-LAST:event_btn_AddActionPerformed
 
     private void btn_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelActionPerformed
