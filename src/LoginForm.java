@@ -1,4 +1,5 @@
 
+
 import java.awt.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -33,6 +34,7 @@ public class LoginForm extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         lbl_U.setVisible(false);
         lbl_P.setVisible(false);
+        this.getRootPane().setDefaultButton(jButton_Login);
     }
 
     /**
@@ -73,6 +75,11 @@ public class LoginForm extends javax.swing.JFrame {
         });
 
         jPasswordField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPasswordField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jPasswordFieldKeyReleased(evt);
+            }
+        });
 
         jButton_Login.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton_Login.setText("Login");
@@ -218,6 +225,10 @@ public class LoginForm extends javax.swing.JFrame {
     private void jButton_LoginFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jButton_LoginFocusGained
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton_LoginFocusGained
+
+    private void jPasswordFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordFieldKeyReleased
+
+    }//GEN-LAST:event_jPasswordFieldKeyReleased
 
     /**
      * @param args the command line arguments

@@ -1,4 +1,5 @@
 
+
 import com.mysql.jdbc.PreparedStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -70,6 +71,8 @@ public class MyFunction {
         int p_id= -1;
         Connection con = MyConnection.getConnection();
         Statement st;
+        if (id < 0) //id is not valid
+            return -1;
         try {
             st = con.createStatement();    
             if (type=='c')

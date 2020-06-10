@@ -1,3 +1,5 @@
+
+
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.GroupLayout;
@@ -46,6 +48,7 @@ public class MainForm extends javax.swing.JFrame {
         jMenuItem_File_Save = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem_Edit_Clients = new javax.swing.JMenuItem();
+        jMenuItem_Edit_Suppliers = new javax.swing.JMenuItem();
         jMenu_add = new javax.swing.JMenu();
         jMenuItem_Add_Client = new javax.swing.JMenuItem();
         jMenuItem_Add_Supplier = new javax.swing.JMenuItem();
@@ -153,6 +156,14 @@ public class MainForm extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem_Edit_Clients);
 
+        jMenuItem_Edit_Suppliers.setText("Suppliers");
+        jMenuItem_Edit_Suppliers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_Edit_SuppliersActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem_Edit_Suppliers);
+
         jMenuBar1.add(jMenu2);
 
         jMenu_add.setText("Add");
@@ -166,6 +177,11 @@ public class MainForm extends javax.swing.JFrame {
         jMenu_add.add(jMenuItem_Add_Client);
 
         jMenuItem_Add_Supplier.setText("Supplier");
+        jMenuItem_Add_Supplier.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_Add_SupplierActionPerformed(evt);
+            }
+        });
         jMenu_add.add(jMenuItem_Add_Supplier);
 
         jMenuItem_Add_Product.setText("Product");
@@ -216,6 +232,22 @@ public class MainForm extends javax.swing.JFrame {
         mec.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jMenuItem_Edit_ClientsActionPerformed
 
+    private void jMenuItem_Add_SupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_Add_SupplierActionPerformed
+        addSupplierForm as = new addSupplierForm();
+        as.setVisible(true);
+        as.pack();
+        as.setLocationRelativeTo(this);
+        as.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_jMenuItem_Add_SupplierActionPerformed
+
+    private void jMenuItem_Edit_SuppliersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_Edit_SuppliersActionPerformed
+        manageSupplierForm ms = new manageSupplierForm();
+        ms.setVisible(true);
+        ms.pack();
+        ms.setLocationRelativeTo(this);
+        ms.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_jMenuItem_Edit_SuppliersActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -262,6 +294,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem_Add_Product;
     private javax.swing.JMenuItem jMenuItem_Add_Supplier;
     private javax.swing.JMenuItem jMenuItem_Edit_Clients;
+    private javax.swing.JMenuItem jMenuItem_Edit_Suppliers;
     private javax.swing.JMenuItem jMenuItem_File_Save;
     private javax.swing.JMenuItem jMenuItem_File_Save_As;
     private javax.swing.JMenu jMenu_add;

@@ -1,41 +1,40 @@
-
-
-
-import java.awt.Color;
-import java.awt.event.KeyEvent;
-import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JFrame;
-import javax.swing.table.DefaultTableModel;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
+import java.awt.Color;
+import java.lang.System.Logger;
+import java.lang.System.Logger.Level;
+import java.sql.SQLException;
+import javax.swing.ButtonGroup;
+import javax.swing.JFrame;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author אביעד
  */
-public class manageClientsForm extends javax.swing.JFrame {
+public class manageSupplierForm extends javax.swing.JFrame {
 
-    /**
-     * Creates new form manageClientsForm
-     */
     static int MAX_DIG_PHONE = 10;
     static int ROW_HEIGHT = 30;
-    client clt = new client(); 
-   //DefaultTableModel model;
-    public manageClientsForm() {
+    supplier sup = new supplier(); 
+    /**
+     * Creates new form manageSupplierForm
+     */
+    public manageSupplierForm() {
         initComponents();
-        clt.fillClientJTable(tbl_clients, "");
-        tbl_clients.setRowHeight(ROW_HEIGHT);
-        tbl_clients.setShowGrid(true);
-        tbl_clients.setGridColor(Color.gray);
+        sup.fillSupplierJTable(tbl_supplier, "");
+        tbl_supplier.setRowHeight(ROW_HEIGHT);
+        tbl_supplier.setShowGrid(true);
+        tbl_supplier.setGridColor(Color.gray);
+        ButtonGroup bg = new ButtonGroup();
+        bg.add(jRadioButton_active);
+        bg.add(jRadioButton_not_active);
+        jRadioButton_active.setSelected(true);
+        type.fillTypeComboBox(jComboBox_type);
     }
 
     /**
@@ -70,8 +69,13 @@ public class manageClientsForm extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         lbl_Date_Added = new javax.swing.JLabel();
         btn_Cancel = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        jComboBox_type = new javax.swing.JComboBox<>();
+        jLabel13 = new javax.swing.JLabel();
+        jRadioButton_active = new javax.swing.JRadioButton();
+        jRadioButton_not_active = new javax.swing.JRadioButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tbl_clients = new javax.swing.JTable();
+        tbl_supplier = new javax.swing.JTable();
         lbl_id1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         txt_Search = new javax.swing.JTextField();
@@ -79,15 +83,17 @@ public class manageClientsForm extends javax.swing.JFrame {
         btn_Add = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 204, 0));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 204, 0));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 0, 204));
-        jLabel1.setText("Manage Clients");
+        jLabel1.setText("Manage Supplier");
         jLabel1.setToolTipText("");
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel2.setBackground(new java.awt.Color(255, 204, 0));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("First Name:");
@@ -186,6 +192,28 @@ public class manageClientsForm extends javax.swing.JFrame {
             }
         });
 
+        jLabel12.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel12.setText("Type:");
+
+        jLabel13.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel13.setText("Status:");
+
+        jRadioButton_active.setBackground(new java.awt.Color(255, 204, 0));
+        jRadioButton_active.setText("Active");
+        jRadioButton_active.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton_activeActionPerformed(evt);
+            }
+        });
+
+        jRadioButton_not_active.setBackground(new java.awt.Color(255, 204, 0));
+        jRadioButton_not_active.setText("Not Active");
+        jRadioButton_not_active.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton_not_activeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -195,11 +223,11 @@ public class manageClientsForm extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(6, 6, 6)
                         .addComponent(txt_Address))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(7, 7, 7)
                         .addComponent(txt_Last_Name))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -226,24 +254,38 @@ public class manageClientsForm extends javax.swing.JFrame {
                                 .addComponent(jLabel10)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lbl_Date_Added))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txt_Phone_M, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(13, 13, 13)
+                        .addComponent(txt_Phone_M)
                         .addGap(1, 1, 1))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(btn_Cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                        .addComponent(btn_Remove, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_Edit, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jComboBox_type, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(60, 60, 60))
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(22, 22, 22)
+                                    .addComponent(jRadioButton_active, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jRadioButton_not_active, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(btn_Cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn_Remove, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn_Edit, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 12, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(lbl_id)
@@ -257,7 +299,7 @@ public class manageClientsForm extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txt_Last_Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(22, 22, 22)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txt_Phone_M, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -269,52 +311,61 @@ public class manageClientsForm extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(txt_Address, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox_type, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(jRadioButton_active)
+                    .addComponent(jRadioButton_not_active))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jLabel8))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_Edit, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btn_Cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btn_Remove, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(20, 20, 20))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addGap(39, 39, 39)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_Cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_Remove, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_Edit, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
-        tbl_clients.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_supplier.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID", "First Name", "Last Name", "Mobile Phone", "Home Phone", "Date Added", "Address", "Comments"
+                "ID", "First Name", "Last Name", "Mobile Phone", "Home Phone", "Date Added", "Address", "Comments", "Type", "Is Active"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        tbl_clients.addMouseListener(new java.awt.event.MouseAdapter() {
+        tbl_supplier.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbl_clientsMouseClicked(evt);
+                tbl_supplierMouseClicked(evt);
             }
         });
-        tbl_clients.addKeyListener(new java.awt.event.KeyAdapter() {
+        tbl_supplier.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                tbl_clientsKeyReleased(evt);
+                tbl_supplierKeyReleased(evt);
             }
         });
-        jScrollPane2.setViewportView(tbl_clients);
+        jScrollPane2.setViewportView(tbl_supplier);
 
         lbl_id1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
 
-        jPanel3.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel3.setBackground(new java.awt.Color(255, 204, 0));
 
         txt_Search.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txt_Search.addActionListener(new java.awt.event.ActionListener() {
@@ -343,7 +394,7 @@ public class manageClientsForm extends javax.swing.JFrame {
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txt_Search, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(97, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -356,7 +407,7 @@ public class manageClientsForm extends javax.swing.JFrame {
         );
 
         btn_Add.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        btn_Add.setText("Add New Client");
+        btn_Add.setText("Add New Supplier");
         btn_Add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_AddActionPerformed(evt);
@@ -369,11 +420,18 @@ public class manageClientsForm extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_Add, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -381,53 +439,49 @@ public class manageClientsForm extends javax.swing.JFrame {
                                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(18, 18, 18))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 652, Short.MAX_VALUE)
-                                .addContainerGap())))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_Add, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                                .addComponent(jScrollPane2)
+                                .addContainerGap())))))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(486, 486, 486)
                     .addComponent(lbl_id1)
-                    .addContainerGap(557, Short.MAX_VALUE)))
+                    .addContainerGap(594, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(22, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btn_Add, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(250, 250, 250)
                     .addComponent(lbl_id1)
-                    .addContainerGap(250, Short.MAX_VALUE)))
+                    .addContainerGap(300, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 11, Short.MAX_VALUE))
         );
 
         pack();
@@ -463,76 +517,50 @@ public class manageClientsForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_AddressActionPerformed
 
-    private void btn_AddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AddActionPerformed
-        AddClient ac = new AddClient();
-        ac.setVisible(true);
-        ac.pack();
-        ac.setLocationRelativeTo(this);
-        ac.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);        
-    }//GEN-LAST:event_btn_AddActionPerformed
-
     private void btn_RemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RemoveActionPerformed
-        
-        if (lbl_id.getText().equals("")) //non client was selected
+
+        if (lbl_id.getText().equals("")) //non supplier was selected
             return;
         int id = Integer.valueOf(lbl_id.getText());
-        client c = new client();
-        c.insertUpdateDeleteClient('d', id, null, null, null, null, null, null, null);
-        fillTableAgain("");
-        
-        clenForm();
+        supplier s = new supplier();
+        s.deleteSupplier(id);
+        sup.fillSupplierTableAgain("");
+        cleanForm();
     }//GEN-LAST:event_btn_RemoveActionPerformed
 
     private void btn_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EditActionPerformed
-        
-        
+
+        boolean isActive = jRadioButton_active.isSelected();
         String id = lbl_id.getText();
         String fname = txt_First_Name.getText();
         String lname = txt_Last_Name.getText();
-        if (id.equals("")) //no client to edit
-            return;
-        if ((fname.equals("")) && (lname.equals(""))) //if no name was given
-        {
-            handleError.showErrorMessage(true, "Please give a name for the client to edit", "No Name");
-            return;
-        }
-        
         String mphone = txt_Phone_M.getText();
-        if (MyFunction.checkPhoneIsValid(mphone)==false) //phone number is not valid
-        {
-            return;
-        }
-        
-        String hphone = txt_Phone_H.getText(); 
-        if (MyFunction.checkPhoneIsValid(hphone)==false) //phone number is not valid
-        {
-            return;
-        }
-        
+        String hphone = txt_Phone_H.getText();
         String address = txt_Address.getText();
         String comments = txt_Comments.getText();
- 
-       
-        int p_id;
-        try {
-             p_id = MyFunction.findPid(Integer.valueOf(id), 'c');   //find the person id of the client             
-        } catch (SQLException ex) {
-            p_id = -1;
-            handleError.showErrorMessage(true, ex.getMessage(),null);
-            Logger.getLogger(manageClientsForm.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        System.out.println("The c_id is: " + id + ". The p_id is: " + String.valueOf(p_id));
-        client c = new client();
-        c.insertUpdateDeleteClient('u', p_id, fname, lname, address, mphone, hphone, comments, null);
-        fillTableAgain("");
+        String tp = String.valueOf(jComboBox_type.getSelectedItem());
+        int t_id = type.findTypeID(tp);
+        supplier s = new supplier();        
         
-        clenForm();
+        if (id.equals("")) //no supplier to edit
+            return;             
+        if(s.checkSupplier(fname, lname, mphone, hphone, t_id) == false) //validation checks
+            return;
+                
+        Integer s_id = Integer.valueOf(id);
+        s.updateSupplier(s_id, fname, lname, mphone, hphone, address, comments, isActive,t_id);
+        sup.fillSupplierTableAgain("");
+        cleanForm();
     }//GEN-LAST:event_btn_EditActionPerformed
 
-    private void tbl_clientsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_clientsMouseClicked
+    private void btn_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btn_CancelActionPerformed
+
+    private void tbl_supplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_supplierMouseClicked
         int rowIndex;
-        DefaultTableModel model = (DefaultTableModel)tbl_clients.getModel();
-        rowIndex = tbl_clients.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel)tbl_supplier.getModel();
+        rowIndex = tbl_supplier.getSelectedRow();
         lbl_id.setText(model.getValueAt(rowIndex,0).toString());
         txt_First_Name.setText(model.getValueAt(rowIndex,1).toString());
         txt_Last_Name.setText(model.getValueAt(rowIndex,2).toString());
@@ -541,34 +569,26 @@ public class manageClientsForm extends javax.swing.JFrame {
         lbl_Date_Added.setText(model.getValueAt(rowIndex,5).toString());
         txt_Address.setText(model.getValueAt(rowIndex,6).toString());
         txt_Comments.setText(model.getValueAt(rowIndex,7).toString());
-    }//GEN-LAST:event_tbl_clientsMouseClicked
+        
+        String tp = model.getValueAt(rowIndex,8).toString();
+        if(type.findTypeID(tp)<0)
+            jComboBox_type.setSelectedIndex(0);
+        else
+            jComboBox_type.setSelectedItem(tp);
+        
+        
+        if (model.getValueAt(rowIndex,9).toString().equals("Yes"))
+                jRadioButton_active.setSelected(true);
+        else
+            jRadioButton_not_active.setSelected(true);
+    }//GEN-LAST:event_tbl_supplierMouseClicked
 
-    private void txt_SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_SearchActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_SearchActionPerformed
-
-    private void txt_SearchKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_SearchKeyTyped
-       
-    }//GEN-LAST:event_txt_SearchKeyTyped
-
-    private void txt_SearchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_SearchKeyPressed
-        if (evt.getKeyCode()== evt.VK_ENTER)
-        {
-           fillTableAgain(txt_Search.getText());
-        }
-             
-    }//GEN-LAST:event_txt_SearchKeyPressed
-
-    private void btn_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_btn_CancelActionPerformed
-
-    private void tbl_clientsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbl_clientsKeyReleased
-        if ((evt.getKeyCode() == KeyEvent.VK_UP) || (evt.getKeyCode() == KeyEvent.VK_DOWN))
+    private void tbl_supplierKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbl_supplierKeyReleased
+        if ((evt.getKeyCode() == evt.VK_UP) || (evt.getKeyCode() == evt.VK_DOWN))
         {
             int rowIndex;
-            DefaultTableModel model = (DefaultTableModel)tbl_clients.getModel();
-            rowIndex = tbl_clients.getSelectedRow();
+            DefaultTableModel model = (DefaultTableModel)tbl_supplier.getModel();
+            rowIndex = tbl_supplier.getSelectedRow();
             lbl_id.setText(model.getValueAt(rowIndex,0).toString());
             txt_First_Name.setText(model.getValueAt(rowIndex,1).toString());
             txt_Last_Name.setText(model.getValueAt(rowIndex,2).toString());
@@ -578,10 +598,41 @@ public class manageClientsForm extends javax.swing.JFrame {
             txt_Address.setText(model.getValueAt(rowIndex,6).toString());
             txt_Comments.setText(model.getValueAt(rowIndex,7).toString());
         }
-            
-    }//GEN-LAST:event_tbl_clientsKeyReleased
-    
-    private void clenForm()
+
+    }//GEN-LAST:event_tbl_supplierKeyReleased
+
+    private void txt_SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_SearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_SearchActionPerformed
+
+    private void txt_SearchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_SearchKeyPressed
+        if (evt.getKeyCode()== evt.VK_ENTER)
+        {
+            sup.fillSupplierTableAgain(txt_Search.getText());
+        }
+
+    }//GEN-LAST:event_txt_SearchKeyPressed
+
+    private void txt_SearchKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_SearchKeyTyped
+
+    }//GEN-LAST:event_txt_SearchKeyTyped
+
+    private void btn_AddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AddActionPerformed
+        addSupplierForm as = new addSupplierForm();
+        as.setVisible(true);
+        as.pack();
+        as.setLocationRelativeTo(this);
+        as.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_btn_AddActionPerformed
+
+    private void jRadioButton_not_activeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton_not_activeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton_not_activeActionPerformed
+
+    private void jRadioButton_activeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton_activeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton_activeActionPerformed
+    private void cleanForm()
     {
         txt_Search.setText("");
         txt_First_Name.setText("");
@@ -592,22 +643,16 @@ public class manageClientsForm extends javax.swing.JFrame {
         txt_Phone_H.setText("");
         lbl_Date_Added.setText("");
         lbl_id.setText("");
+        jRadioButton_active.setSelected(true);
+        jComboBox_type.setSelectedIndex(0);
     }
     
-    private void fillTableAgain(String searchValue)
-    {
-        DefaultTableModel tableModel = new DefaultTableModel(null, new Object[]{"ID","First Name","First Name",
-                "Mobile Phone","Home Phone","Date Added","Address","Comments"}) {
-
-        @Override
-        public boolean isCellEditable(int row, int column) {
-           //all cells false
-           return false;
-        }
-    };
-        tbl_clients.setModel(tableModel);
-        clt.fillClientJTable(manageClientsForm.tbl_clients, searchValue);
-    }
+//    private void fillSupplierTableAgain(String searchValue)
+//    {
+//        tbl_supplier.setModel(new DefaultTableModel(null, new Object[]{"ID","First Name","First Name",
+//            "Mobile Phone","Home Phone","Date Added","Address","Comments","Type","Is Active"}));
+//        sup.fillSupplierJTable(tbl_supplier, searchValue);
+//    }
     /**
      * @param args the command line arguments
      */
@@ -625,20 +670,20 @@ public class manageClientsForm extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(manageClientsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(manageSupplierForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(manageClientsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(manageSupplierForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(manageClientsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(manageSupplierForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(manageClientsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(manageSupplierForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new manageClientsForm().setVisible(true);
+                new manageSupplierForm().setVisible(true);
             }
         });
     }
@@ -648,9 +693,12 @@ public class manageClientsForm extends javax.swing.JFrame {
     private javax.swing.JButton btn_Cancel;
     private javax.swing.JButton btn_Edit;
     private javax.swing.JButton btn_Remove;
+    public static javax.swing.JComboBox<String> jComboBox_type;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -661,12 +709,14 @@ public class manageClientsForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JRadioButton jRadioButton_active;
+    private javax.swing.JRadioButton jRadioButton_not_active;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lbl_Date_Added;
     private javax.swing.JLabel lbl_id;
     private javax.swing.JLabel lbl_id1;
-    public static javax.swing.JTable tbl_clients;
+    public static javax.swing.JTable tbl_supplier;
     private javax.swing.JTextField txt_Address;
     private javax.swing.JTextArea txt_Comments;
     private javax.swing.JTextField txt_First_Name;

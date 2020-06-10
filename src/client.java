@@ -1,4 +1,7 @@
 
+
+
+
 import java.sql.Connection;
 import java.sql.Date;
 import java.lang.Integer;
@@ -13,7 +16,7 @@ import static javax.swing.UIManager.get;
 import javax.swing.table.DefaultTableModel;
 
 public class client {
-    static int NUMBER_OF_ROWS_CLIENT = 8;
+    static int NUMBER_OF_COLUMNS_CLIENT = 8;
     public void insertUpdateDeleteClient(char operation, Integer id, String fname, String lname,
             String address, String mphone, String hphone, String comments, String dateAdded)
     {
@@ -59,14 +62,13 @@ public class client {
         {
             try {
                 ps1 = con.prepareStatement("UPDATE `person` SET `first_name`=?,`last_name`=?,"
-                        + "`m_phone`=?,`h_phone`=?,`date_added`=?,`address`=?,`comments`=? WHERE `p_id` = ?");
+                        + "`m_phone`=?,`h_phone`=?,`address`=?,`comments`=? WHERE `p_id` = ?");
                 ps1.setString(1, fname);
                 ps1.setString(2, lname);
                 ps1.setString(3, mphone);
                 ps1.setString(4, hphone);
-                ps1.setString(5, dateAdded);
-                ps1.setString(6, address);
-                ps1.setString(7, comments);     
+                ps1.setString(5, address);
+                ps1.setString(6, comments);     
                 ps1.setInt(7, id);
                 
                 if(ps1.executeUpdate()>0)
@@ -76,6 +78,24 @@ public class client {
                 }                                      
             } catch (SQLException ex) {
                 handleError.showErrorMessage(true, "Updating was unsuccessful." + ex.getMessage(), null);
+                Logger.getLogger(client.class.getName()).log(Level.SEVERE, null, ex);
+            }               
+        }
+        
+         // d for delete
+        else if (operation == 'd')
+        {
+            try {
+                ps1 = con.prepareStatement("DELETE FROM `client` WHERE `c_id` = ?"); 
+                ps1.setInt(1, id);
+                
+                if(ps1.executeUpdate()>0)
+                { 
+                    JOptionPane.showMessageDialog(null, "Client Deleted");
+                    return;
+                }                                      
+            } catch (SQLException ex) {
+                handleError.showErrorMessage(true, "Deleting was unsuccessful. " + ex.getMessage(), null);
                 Logger.getLogger(client.class.getName()).log(Level.SEVERE, null, ex);
             }               
         }
@@ -93,7 +113,7 @@ public class client {
             Object[] row;
             while(rs.next())
             {
-                row=new Object[NUMBER_OF_ROWS_CLIENT];
+                row=new Object[NUMBER_OF_COLUMNS_CLIENT];
                 row[0] = rs.getInt(9);  //c_id pos is 9
                 row[1] = rs.getString(2);
                 row[2] = rs.getString(3);

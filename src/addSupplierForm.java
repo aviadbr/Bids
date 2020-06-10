@@ -1,37 +1,37 @@
 
 
-
-import java.awt.*;
-import java.awt.event.*;
-import java.sql.Date;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.util.Calendar;
-import javax.swing.*;
-import javax.swing.GroupLayout;
-import javax.swing.JOptionPane;
-import javax.swing.LayoutStyle;
-import javax.swing.table.DefaultTableModel;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import javax.swing.ButtonGroup;
+import javax.swing.JFrame;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
- * @author Aviad
+ * @author אביעד
  */
+public class addSupplierForm extends javax.swing.JFrame {
 
-public class AddClient extends javax.swing.JFrame {
-    
-    static int MAX_DIG_PHONE = 10;
     /**
-     * Creates new form AddClient
+     * Creates new form addSupplierForm
      */
-    client clt = new client();
-    public AddClient() {
+    static int MAX_DIG_PHONE = 10;
+    supplier sup = new supplier();
+    typeList tpl;
+    public addSupplierForm() {
         initComponents();
+        ButtonGroup bg = new ButtonGroup();
+        bg.add(jRadioButton_active);
+        bg.add(jRadioButton_not_active);
+        jRadioButton_active.setSelected(true);
+        type.fillTypeComboBox(jComboBox_type);
     }
 
     /**
@@ -61,14 +61,20 @@ public class AddClient extends javax.swing.JFrame {
         btn_Clear = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         txt_Comments = new javax.swing.JTextArea();
+        jLabel8 = new javax.swing.JLabel();
+        jComboBox_type = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
+        jRadioButton_active = new javax.swing.JRadioButton();
+        jRadioButton_not_active = new javax.swing.JRadioButton();
+        btn_Add_Type = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 204, 0));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 0, 204));
-        jLabel1.setText("New Client");
+        jLabel1.setText("New Supplier");
         jLabel1.setToolTipText("");
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -158,13 +164,44 @@ public class AddClient extends javax.swing.JFrame {
         txt_Comments.setRows(5);
         jScrollPane1.setViewportView(txt_Comments);
 
+        jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel8.setText("Type:");
+
+        jLabel9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel9.setText("Status:");
+
+        jRadioButton_active.setBackground(new java.awt.Color(255, 204, 0));
+        jRadioButton_active.setText("Active");
+
+        jRadioButton_not_active.setBackground(new java.awt.Color(255, 204, 0));
+        jRadioButton_not_active.setText("Not Active");
+        jRadioButton_not_active.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton_not_activeActionPerformed(evt);
+            }
+        });
+
+        btn_Add_Type.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        btn_Add_Type.setText("Add Type");
+        btn_Add_Type.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_Add_TypeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBox_type, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_Add_Type, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -201,8 +238,17 @@ public class AddClient extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(48, 48, 48))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(84, 84, 84)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(66, 66, 66)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22)
+                        .addComponent(jRadioButton_active, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jRadioButton_not_active, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -222,7 +268,7 @@ public class AddClient extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txt_Phone_M, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
                     .addComponent(txt_Phone_H, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -230,7 +276,18 @@ public class AddClient extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(txt_Address, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jComboBox_type, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel8))
+                    .addComponent(btn_Add_Type, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(jRadioButton_active)
+                    .addComponent(jRadioButton_not_active))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(31, 31, 31)
@@ -253,61 +310,67 @@ public class AddClient extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
+    private void txt_First_NameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_First_NameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_First_NameActionPerformed
 
     private void txt_Phone_MActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Phone_MActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_Phone_MActionPerformed
 
+    private void txt_Phone_MKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Phone_MKeyTyped
+        if (!(Character.isDigit(evt.getKeyChar())))
+        evt.consume();
+        if(txt_Phone_M.getText().length()>=MAX_DIG_PHONE)
+        evt.consume();
+    }//GEN-LAST:event_txt_Phone_MKeyTyped
+
     private void txt_Phone_HActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Phone_HActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_Phone_HActionPerformed
+
+    private void txt_Phone_HKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Phone_HKeyTyped
+        if (!(Character.isDigit(evt.getKeyChar())))
+        evt.consume();
+        if(txt_Phone_H.getText().length()>=MAX_DIG_PHONE)
+        evt.consume();
+    }//GEN-LAST:event_txt_Phone_HKeyTyped
 
     private void txt_AddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_AddressActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_AddressActionPerformed
 
     private void btn_AddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AddActionPerformed
-        
+
+        boolean isActive = jRadioButton_active.isSelected(); 
         String fname = txt_First_Name.getText();
         String lname = txt_Last_Name.getText();
-        if ((fname.equals("")) && (lname.equals(""))) //if no name was given
-        {
-            handleError.showErrorMessage(true, "Please give a name for the client", "No Name");
-            return;
-        }
-
-        
         String mphone = txt_Phone_M.getText();
-        if (MyFunction.checkPhoneIsValid(mphone)==false) //phone number is not valid
-        {
-            return;
-        }
-        
-        String hphone = txt_Phone_H.getText(); 
-        if (MyFunction.checkPhoneIsValid(hphone)==false) //phone number is not valid
-        {
-            return;
-        }
-        
+        String hphone = txt_Phone_H.getText();
         String address = txt_Address.getText();
         String comments = txt_Comments.getText();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-        Calendar cal = Calendar.getInstance();
+        Calendar cal = Calendar.getInstance();  
         String date = dateFormat.format(cal.getTime());
-        client c = new client();
-        c.insertUpdateDeleteClient('i', null, fname, lname, address, mphone, hphone, comments, date);
-        this.dispose();
-        MainForm.lbl_Clients_c.setText("Clients count: "+ Integer.toString(MyFunction.countData("client")));
-        manageClientsForm.tbl_clients.setModel(new DefaultTableModel(null, new Object[]{"ID","First Name","First Name",
-                "Mobile Phone","Home Phone","Date Added","Address","Comments"}));
-        clt.fillClientJTable(manageClientsForm.tbl_clients, "");
-        
+        supplier s = new supplier();
+        String tp = String.valueOf(jComboBox_type.getSelectedItem());
+        int t_id = type.findTypeID(tp);
+  
+ 
+        if(s.checkSupplier(fname, lname, mphone, hphone, t_id) == true) //validation checks
+        {
+            s.insertSupplier(fname, lname, address, mphone, hphone,isActive,comments, date, t_id);
+            this.dispose();
+            MainForm.lbl_Suppliers_c.setText("Suppliers count: "+ Integer.toString(MyFunction.countData("supplier")));
+            s.fillSupplierTableAgain("");
+        }
     }//GEN-LAST:event_btn_AddActionPerformed
 
     private void btn_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelActionPerformed
@@ -321,26 +384,22 @@ public class AddClient extends javax.swing.JFrame {
         txt_Comments.setText("");
         txt_Phone_M.setText("");
         txt_Phone_H.setText("");
+        jRadioButton_active.setSelected(true);
+        jComboBox_type.setSelectedIndex(0);
     }//GEN-LAST:event_btn_ClearActionPerformed
 
-    private void txt_First_NameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_First_NameActionPerformed
+    private void jRadioButton_not_activeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton_not_activeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_First_NameActionPerformed
+    }//GEN-LAST:event_jRadioButton_not_activeActionPerformed
 
-    private void txt_Phone_MKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Phone_MKeyTyped
-        if (!(Character.isDigit(evt.getKeyChar())))
-            evt.consume(); 
-        if(txt_Phone_M.getText().length()>=MAX_DIG_PHONE)  
-            evt.consume();
-    }//GEN-LAST:event_txt_Phone_MKeyTyped
-
-    private void txt_Phone_HKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Phone_HKeyTyped
-        if (!(Character.isDigit(evt.getKeyChar())))
-            evt.consume();
-        if(txt_Phone_H.getText().length()>=MAX_DIG_PHONE)  
-            evt.consume();        
-    }//GEN-LAST:event_txt_Phone_HKeyTyped
-
+    private void btn_Add_TypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Add_TypeActionPerformed
+        AddTypeForm at = new AddTypeForm();
+        at.setVisible(true);
+        at.pack();
+        at.setLocationRelativeTo(this);
+        at.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);        
+    }//GEN-LAST:event_btn_Add_TypeActionPerformed
+    
     /**
      * @param args the command line arguments
      */
@@ -358,28 +417,30 @@ public class AddClient extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AddClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(addSupplierForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AddClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(addSupplierForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AddClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(addSupplierForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AddClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(addSupplierForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AddClient().setVisible(true);
+                new addSupplierForm().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Add;
+    private javax.swing.JButton btn_Add_Type;
     private javax.swing.JButton btn_Cancel;
     private javax.swing.JButton btn_Clear;
+    public static javax.swing.JComboBox<String> jComboBox_type;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -387,7 +448,11 @@ public class AddClient extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButton jRadioButton_active;
+    private javax.swing.JRadioButton jRadioButton_not_active;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txt_Address;
     private javax.swing.JTextArea txt_Comments;
