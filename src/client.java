@@ -128,4 +128,19 @@ public class client {
             Logger.getLogger(client.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public void fillTableAgain(String searchValue)
+    {
+        DefaultTableModel tableModel = new DefaultTableModel(null, new Object[]{"ID","First Name","First Name",
+                "Mobile Phone","Home Phone","Date Added","Address","Comments"}) {
+
+        @Override
+        public boolean isCellEditable(int row, int column) {
+           //all cells false
+           return false;
+        }
+    };
+        manageClientsForm.tbl_clients.setModel(tableModel);
+        fillClientJTable(manageClientsForm.tbl_clients, searchValue);
+    }
 }

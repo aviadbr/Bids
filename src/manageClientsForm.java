@@ -478,7 +478,7 @@ public class manageClientsForm extends javax.swing.JFrame {
         int id = Integer.valueOf(lbl_id.getText());
         client c = new client();
         c.insertUpdateDeleteClient('d', id, null, null, null, null, null, null, null);
-        fillTableAgain("");
+        clt.fillTableAgain("");
         
         clenForm();
     }//GEN-LAST:event_btn_RemoveActionPerformed
@@ -512,7 +512,6 @@ public class manageClientsForm extends javax.swing.JFrame {
         String address = txt_Address.getText();
         String comments = txt_Comments.getText();
  
-       
         int p_id;
         try {
              p_id = MyFunction.findPid(Integer.valueOf(id), 'c');   //find the person id of the client             
@@ -521,10 +520,9 @@ public class manageClientsForm extends javax.swing.JFrame {
             handleError.showErrorMessage(true, ex.getMessage(),null);
             Logger.getLogger(manageClientsForm.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println("The c_id is: " + id + ". The p_id is: " + String.valueOf(p_id));
         client c = new client();
         c.insertUpdateDeleteClient('u', p_id, fname, lname, address, mphone, hphone, comments, null);
-        fillTableAgain("");
+        clt.fillTableAgain("");
         
         clenForm();
     }//GEN-LAST:event_btn_EditActionPerformed
@@ -554,7 +552,7 @@ public class manageClientsForm extends javax.swing.JFrame {
     private void txt_SearchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_SearchKeyPressed
         if (evt.getKeyCode()== evt.VK_ENTER)
         {
-           fillTableAgain(txt_Search.getText());
+           clt.fillTableAgain(txt_Search.getText());
         }
              
     }//GEN-LAST:event_txt_SearchKeyPressed
@@ -594,20 +592,7 @@ public class manageClientsForm extends javax.swing.JFrame {
         lbl_id.setText("");
     }
     
-    private void fillTableAgain(String searchValue)
-    {
-        DefaultTableModel tableModel = new DefaultTableModel(null, new Object[]{"ID","First Name","First Name",
-                "Mobile Phone","Home Phone","Date Added","Address","Comments"}) {
-
-        @Override
-        public boolean isCellEditable(int row, int column) {
-           //all cells false
-           return false;
-        }
-    };
-        tbl_clients.setModel(tableModel);
-        clt.fillClientJTable(manageClientsForm.tbl_clients, searchValue);
-    }
+    
     /**
      * @param args the command line arguments
      */

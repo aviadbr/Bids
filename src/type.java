@@ -78,7 +78,6 @@ public class type {
             ResultSet rs = st.executeQuery("SELECT *  FROM supplier_type WHERE type_name = '" + type+"'");
             while (rs.next())
             {
-                if(type.equals(rs.getString(2)))
                     return rs.getInt(1);
             }
         } catch (SQLException ex) {

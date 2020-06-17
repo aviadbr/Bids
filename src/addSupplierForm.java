@@ -370,6 +370,7 @@ public class addSupplierForm extends javax.swing.JFrame {
             this.dispose();
             MainForm.lbl_Suppliers_c.setText("Suppliers count: "+ Integer.toString(MyFunction.countData("supplier")));
             s.fillSupplierTableAgain("");
+            type.fillTypeComboBox(addSupplierForm.jComboBox_type);
         }
     }//GEN-LAST:event_btn_AddActionPerformed
 

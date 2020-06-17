@@ -141,6 +141,7 @@ public class AddTypeForm extends javax.swing.JFrame {
         t.insertType(typeName);
         this.dispose(); 
         type.fillTypeComboBox(addSupplierForm.jComboBox_type);
+        type.fillTypeComboBox(AddProductForm.jComboBox_type);
     }//GEN-LAST:event_btn_AddActionPerformed
 
     private void btn_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelActionPerformed

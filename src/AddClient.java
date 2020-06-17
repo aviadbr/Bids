@@ -304,9 +304,7 @@ public class AddClient extends javax.swing.JFrame {
         c.insertUpdateDeleteClient('i', null, fname, lname, address, mphone, hphone, comments, date);
         this.dispose();
         MainForm.lbl_Clients_c.setText("Clients count: "+ Integer.toString(MyFunction.countData("client")));
-        manageClientsForm.tbl_clients.setModel(new DefaultTableModel(null, new Object[]{"ID","First Name","First Name",
-                "Mobile Phone","Home Phone","Date Added","Address","Comments"}));
-        clt.fillClientJTable(manageClientsForm.tbl_clients, "");
+        c.fillTableAgain("");
         
     }//GEN-LAST:event_btn_AddActionPerformed
 
