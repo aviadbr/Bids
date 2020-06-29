@@ -139,7 +139,7 @@ public class supplier {
         Connection con = MyConnection.getConnection();
         PreparedStatement ps;
         try {
-            ps=con.prepareStatement("SELECT * FROM `person` NATURAL JOIN supplier NATURAL JOIN supplier_type WHERE CONCAT('c_id',`first_name`,`last_name`,`m_phone`,`h_phone`,`date_added`,`address`,`comments`,'isActive','type_name') LIKE ?");
+            ps=con.prepareStatement("SELECT * FROM `person` NATURAL JOIN supplier NATURAL JOIN type WHERE CONCAT('s_id',`first_name`,`last_name`,`m_phone`,`h_phone`,`date_added`,`address`,`comments`,'isActive','type_name') LIKE ?");
             ps.setString(1,'%' +valueToSearch+ '%');
             ResultSet rs = ps.executeQuery();
             DefaultTableModel model = (DefaultTableModel)table.getModel();

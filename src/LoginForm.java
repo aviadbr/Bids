@@ -199,7 +199,8 @@ public class LoginForm extends javax.swing.JFrame {
                 mf.setVisible(true);
                 mf.pack();
                 mf.setLocationRelativeTo(null);
-                //mf.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                mf.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                mf.setUndecorated(true);
                 MainForm.lbl_welcome.setText("Welcome "+ jTextField_Username.getText());
                 MainForm.lbl_Clients_c.setText("Clients count: "+ Integer.toString(MyFunction.countData("client")));
                 MainForm.lbl_Suppliers_c.setText("Suppliers count: "+ Integer.toString(MyFunction.countData("supplier")));

@@ -35,6 +35,9 @@ public class manageSupplierForm extends javax.swing.JFrame {
         bg.add(jRadioButton_not_active);
         jRadioButton_active.setSelected(true);
         type.fillTypeComboBox(jComboBox_type);
+        tbl_supplier.requestFocus();
+        tbl_supplier.changeSelection(0, 0, false, false);
+        loadNewRow();
     }
 
     /**
@@ -162,7 +165,7 @@ public class manageSupplierForm extends javax.swing.JFrame {
         });
 
         btn_Edit.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        btn_Edit.setText("Edit");
+        btn_Edit.setText("Set");
         btn_Edit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_EditActionPerformed(evt);
@@ -377,6 +380,9 @@ public class manageSupplierForm extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txt_SearchKeyPressed(evt);
             }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_SearchKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_SearchKeyTyped(evt);
             }
@@ -390,11 +396,11 @@ public class manageSupplierForm extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
+                .addGap(90, 90, 90)
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txt_Search, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addContainerGap(171, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -437,7 +443,7 @@ public class manageSupplierForm extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(18, 18, 18))
+                                .addGap(28, 28, 28))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jScrollPane2)
                                 .addContainerGap())))))
@@ -445,23 +451,23 @@ public class manageSupplierForm extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(486, 486, 486)
                     .addComponent(lbl_id1)
-                    .addContainerGap(594, Short.MAX_VALUE)))
+                    .addContainerGap(725, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
+                .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(28, 28, 28)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addGap(55, 55, 55)
                         .addComponent(btn_Add, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -475,7 +481,7 @@ public class manageSupplierForm extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -525,6 +531,7 @@ public class manageSupplierForm extends javax.swing.JFrame {
         supplier s = new supplier();
         s.deleteSupplier(id);
         sup.fillSupplierTableAgain("");
+        MainForm.lbl_Suppliers_c.setText("Suppliers count: "+ Integer.toString(MyFunction.countData("supplier")));
         cleanForm();
     }//GEN-LAST:event_btn_RemoveActionPerformed
 
@@ -558,45 +565,13 @@ public class manageSupplierForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_CancelActionPerformed
 
     private void tbl_supplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_supplierMouseClicked
-        int rowIndex;
-        DefaultTableModel model = (DefaultTableModel)tbl_supplier.getModel();
-        rowIndex = tbl_supplier.getSelectedRow();
-        lbl_id.setText(model.getValueAt(rowIndex,0).toString());
-        txt_First_Name.setText(model.getValueAt(rowIndex,1).toString());
-        txt_Last_Name.setText(model.getValueAt(rowIndex,2).toString());
-        txt_Phone_M.setText(model.getValueAt(rowIndex,3).toString());
-        txt_Phone_H.setText(model.getValueAt(rowIndex,4).toString());
-        lbl_Date_Added.setText(model.getValueAt(rowIndex,5).toString());
-        txt_Address.setText(model.getValueAt(rowIndex,6).toString());
-        txt_Comments.setText(model.getValueAt(rowIndex,7).toString());
-        
-        String tp = model.getValueAt(rowIndex,8).toString();
-        if(type.findTypeID(tp)<0)
-            jComboBox_type.setSelectedIndex(0);
-        else
-            jComboBox_type.setSelectedItem(tp);
-        
-        
-        if (model.getValueAt(rowIndex,9).toString().equals("Yes"))
-                jRadioButton_active.setSelected(true);
-        else
-            jRadioButton_not_active.setSelected(true);
+       loadNewRow();
     }//GEN-LAST:event_tbl_supplierMouseClicked
 
     private void tbl_supplierKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbl_supplierKeyReleased
         if ((evt.getKeyCode() == evt.VK_UP) || (evt.getKeyCode() == evt.VK_DOWN))
         {
-            int rowIndex;
-            DefaultTableModel model = (DefaultTableModel)tbl_supplier.getModel();
-            rowIndex = tbl_supplier.getSelectedRow();
-            lbl_id.setText(model.getValueAt(rowIndex,0).toString());
-            txt_First_Name.setText(model.getValueAt(rowIndex,1).toString());
-            txt_Last_Name.setText(model.getValueAt(rowIndex,2).toString());
-            txt_Phone_M.setText(model.getValueAt(rowIndex,3).toString());
-            txt_Phone_H.setText(model.getValueAt(rowIndex,4).toString());
-            lbl_Date_Added.setText(model.getValueAt(rowIndex,5).toString());
-            txt_Address.setText(model.getValueAt(rowIndex,6).toString());
-            txt_Comments.setText(model.getValueAt(rowIndex,7).toString());
+            loadNewRow();
         }
 
     }//GEN-LAST:event_tbl_supplierKeyReleased
@@ -606,11 +581,8 @@ public class manageSupplierForm extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_SearchActionPerformed
 
     private void txt_SearchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_SearchKeyPressed
-        if (evt.getKeyCode()== evt.VK_ENTER)
-        {
-            sup.fillSupplierTableAgain(txt_Search.getText());
-        }
-
+        //if (evt.getKeyCode()== evt.VK_ENTER)
+        //sup.fillSupplierTableAgain(txt_Search.getText());
     }//GEN-LAST:event_txt_SearchKeyPressed
 
     private void txt_SearchKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_SearchKeyTyped
@@ -632,6 +604,14 @@ public class manageSupplierForm extends javax.swing.JFrame {
     private void jRadioButton_activeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton_activeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton_activeActionPerformed
+
+    private void txt_SearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_SearchKeyReleased
+        sup.fillSupplierTableAgain(txt_Search.getText());
+    }//GEN-LAST:event_txt_SearchKeyReleased
+    
+    /*
+        clean the form
+    */
     private void cleanForm()
     {
         txt_Search.setText("");
@@ -647,6 +627,34 @@ public class manageSupplierForm extends javax.swing.JFrame {
         jComboBox_type.setSelectedIndex(0);
     }
     
+    /*
+        loads a new row from the table
+    */
+    private void loadNewRow()
+    {
+        int rowIndex;
+        DefaultTableModel model = (DefaultTableModel)tbl_supplier.getModel();
+        rowIndex = tbl_supplier.getSelectedRow();
+        lbl_id.setText(model.getValueAt(rowIndex,0).toString());
+        txt_First_Name.setText(model.getValueAt(rowIndex,1).toString());
+        txt_Last_Name.setText(model.getValueAt(rowIndex,2).toString());
+        txt_Phone_M.setText(model.getValueAt(rowIndex,3).toString());
+        txt_Phone_H.setText(model.getValueAt(rowIndex,4).toString());
+        lbl_Date_Added.setText(model.getValueAt(rowIndex,5).toString());
+        txt_Address.setText(model.getValueAt(rowIndex,6).toString());
+        txt_Comments.setText(model.getValueAt(rowIndex,7).toString());
+        String tp = model.getValueAt(rowIndex,8).toString();
+        if(type.findTypeID(tp)<0)
+            jComboBox_type.setSelectedIndex(0);
+        else
+            jComboBox_type.setSelectedItem(tp);
+        
+        String isActive = model.getValueAt(rowIndex,9).toString();
+        if (isActive.equals("Yes"))
+            jRadioButton_active.setSelected(true);
+        else
+            jRadioButton_not_active.setSelected(true);
+    }
 //    private void fillSupplierTableAgain(String searchValue)
 //    {
 //        tbl_supplier.setModel(new DefaultTableModel(null, new Object[]{"ID","First Name","First Name",

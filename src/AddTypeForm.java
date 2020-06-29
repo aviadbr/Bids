@@ -1,4 +1,7 @@
 
+import javax.swing.JComboBox;
+
+
 
 
 
@@ -14,14 +17,17 @@
  * @author אביעד
  */
 public class AddTypeForm extends javax.swing.JFrame {
-
+    JComboBox jComboBox_type = null;
     /**
      * Creates new form AddTypeForm
      */
     public AddTypeForm() {
         initComponents();
     }
-
+    public AddTypeForm(JComboBox jComboBox_t) {
+        initComponents();
+        jComboBox_type = jComboBox_t;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -139,9 +145,9 @@ public class AddTypeForm extends javax.swing.JFrame {
         }
         type t = new type();
         t.insertType(typeName);
-        this.dispose(); 
-        type.fillTypeComboBox(addSupplierForm.jComboBox_type);
-        type.fillTypeComboBox(AddProductForm.jComboBox_type);
+        this.dispose();
+        if (jComboBox_type != null)
+            type.fillTypeComboBox(jComboBox_type);
     }//GEN-LAST:event_btn_AddActionPerformed
 
     private void btn_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelActionPerformed

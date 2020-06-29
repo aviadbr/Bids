@@ -4,6 +4,7 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -21,6 +22,7 @@ public class MainForm extends javax.swing.JFrame {
      */
     public MainForm() {
         initComponents();
+       
     }
 
     /**
@@ -33,9 +35,9 @@ public class MainForm extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuItem1 = new javax.swing.JMenuItem();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jPanel_title = new javax.swing.JPanel();
         lbl_welcome = new javax.swing.JLabel();
+        lbl_Title = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         lbl_Clients_c = new javax.swing.JLabel();
@@ -47,8 +49,9 @@ public class MainForm extends javax.swing.JFrame {
         jMenuItem_File_Save_As = new javax.swing.JMenuItem();
         jMenuItem_File_Save = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem_Edit_Clients = new javax.swing.JMenuItem();
-        jMenuItem_Edit_Suppliers = new javax.swing.JMenuItem();
+        jMenuItem_Manage_Clients = new javax.swing.JMenuItem();
+        jMenuItem_Manage_Suppliers = new javax.swing.JMenuItem();
+        jMenuItem_Manage_Products = new javax.swing.JMenuItem();
         jMenu_add = new javax.swing.JMenu();
         jMenuItem_Add_Client = new javax.swing.JMenuItem();
         jMenuItem_Add_Supplier = new javax.swing.JMenuItem();
@@ -58,31 +61,31 @@ public class MainForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        jLabel1.setText("Order Management");
-
         lbl_welcome.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbl_welcome.setForeground(new java.awt.Color(0, 0, 255));
         lbl_welcome.setText("Welcome <#####>");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(101, 101, 101)
-                .addComponent(jLabel1)
-                .addContainerGap(140, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        lbl_Title.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        lbl_Title.setText("Order Management");
+
+        javax.swing.GroupLayout jPanel_titleLayout = new javax.swing.GroupLayout(jPanel_title);
+        jPanel_title.setLayout(jPanel_titleLayout);
+        jPanel_titleLayout.setHorizontalGroup(
+            jPanel_titleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_titleLayout.createSequentialGroup()
                 .addComponent(lbl_welcome)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel_titleLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbl_Title)
+                .addContainerGap(259, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        jPanel_titleLayout.setVerticalGroup(
+            jPanel_titleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_titleLayout.createSequentialGroup()
                 .addComponent(lbl_welcome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
+                .addComponent(lbl_Title)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -146,23 +149,31 @@ public class MainForm extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Edit");
+        jMenu2.setText("Manage");
 
-        jMenuItem_Edit_Clients.setText("Clients");
-        jMenuItem_Edit_Clients.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem_Manage_Clients.setText("Clients");
+        jMenuItem_Manage_Clients.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem_Edit_ClientsActionPerformed(evt);
+                jMenuItem_Manage_ClientsActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem_Edit_Clients);
+        jMenu2.add(jMenuItem_Manage_Clients);
 
-        jMenuItem_Edit_Suppliers.setText("Suppliers");
-        jMenuItem_Edit_Suppliers.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem_Manage_Suppliers.setText("Suppliers");
+        jMenuItem_Manage_Suppliers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem_Edit_SuppliersActionPerformed(evt);
+                jMenuItem_Manage_SuppliersActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem_Edit_Suppliers);
+        jMenu2.add(jMenuItem_Manage_Suppliers);
+
+        jMenuItem_Manage_Products.setText("Products");
+        jMenuItem_Manage_Products.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_Manage_ProductsActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem_Manage_Products);
 
         jMenuBar1.add(jMenu2);
 
@@ -185,6 +196,11 @@ public class MainForm extends javax.swing.JFrame {
         jMenu_add.add(jMenuItem_Add_Supplier);
 
         jMenuItem_Add_Product.setText("Product");
+        jMenuItem_Add_Product.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_Add_ProductActionPerformed(evt);
+            }
+        });
         jMenu_add.add(jMenuItem_Add_Product);
 
         jMenuBar1.add(jMenu_add);
@@ -195,16 +211,13 @@ public class MainForm extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 20, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel_title, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel_title, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 175, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -224,13 +237,13 @@ public class MainForm extends javax.swing.JFrame {
         ac.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jMenuItem_Add_ClientActionPerformed
 
-    private void jMenuItem_Edit_ClientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_Edit_ClientsActionPerformed
+    private void jMenuItem_Manage_ClientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_Manage_ClientsActionPerformed
         manageClientsForm mec = new manageClientsForm();
         mec.setVisible(true);
         mec.pack();
         mec.setLocationRelativeTo(this);
         mec.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    }//GEN-LAST:event_jMenuItem_Edit_ClientsActionPerformed
+    }//GEN-LAST:event_jMenuItem_Manage_ClientsActionPerformed
 
     private void jMenuItem_Add_SupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_Add_SupplierActionPerformed
         addSupplierForm as = new addSupplierForm();
@@ -240,13 +253,29 @@ public class MainForm extends javax.swing.JFrame {
         as.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jMenuItem_Add_SupplierActionPerformed
 
-    private void jMenuItem_Edit_SuppliersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_Edit_SuppliersActionPerformed
+    private void jMenuItem_Manage_SuppliersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_Manage_SuppliersActionPerformed
         manageSupplierForm ms = new manageSupplierForm();
         ms.setVisible(true);
         ms.pack();
         ms.setLocationRelativeTo(this);
         ms.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    }//GEN-LAST:event_jMenuItem_Edit_SuppliersActionPerformed
+    }//GEN-LAST:event_jMenuItem_Manage_SuppliersActionPerformed
+
+    private void jMenuItem_Add_ProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_Add_ProductActionPerformed
+        AddProductForm ap = new AddProductForm();
+        ap.setVisible(true);
+        ap.pack();
+        ap.setLocationRelativeTo(this);
+        ap.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_jMenuItem_Add_ProductActionPerformed
+
+    private void jMenuItem_Manage_ProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_Manage_ProductsActionPerformed
+        manageProductsForm mp = new manageProductsForm();
+        mp.setVisible(true);
+        mp.pack();
+        mp.setLocationRelativeTo(this);
+        mp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_jMenuItem_Manage_ProductsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -284,7 +313,6 @@ public class MainForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -293,17 +321,19 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem_Add_Client;
     private javax.swing.JMenuItem jMenuItem_Add_Product;
     private javax.swing.JMenuItem jMenuItem_Add_Supplier;
-    private javax.swing.JMenuItem jMenuItem_Edit_Clients;
-    private javax.swing.JMenuItem jMenuItem_Edit_Suppliers;
     private javax.swing.JMenuItem jMenuItem_File_Save;
     private javax.swing.JMenuItem jMenuItem_File_Save_As;
+    private javax.swing.JMenuItem jMenuItem_Manage_Clients;
+    private javax.swing.JMenuItem jMenuItem_Manage_Products;
+    private javax.swing.JMenuItem jMenuItem_Manage_Suppliers;
     private javax.swing.JMenu jMenu_add;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel_title;
     public static javax.swing.JLabel lbl_Clients_c;
     public static javax.swing.JLabel lbl_Orders_c;
     public static javax.swing.JLabel lbl_Products_c;
     public static javax.swing.JLabel lbl_Suppliers_c;
+    private javax.swing.JLabel lbl_Title;
     public static javax.swing.JLabel lbl_welcome;
     // End of variables declaration//GEN-END:variables
 }

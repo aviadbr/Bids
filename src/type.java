@@ -31,7 +31,7 @@ public class type {
         Connection con = MyConnection.getConnection();
         PreparedStatement ps;
         try {
-            ps = con.prepareStatement("INSERT INTO supplier_type(type_name) VALUES (?)");
+            ps = con.prepareStatement("INSERT INTO type(type_name) VALUES (?)");
             ps.setString(1, typeName);     
             if(ps.executeUpdate()>0)
             { 
@@ -50,7 +50,7 @@ public class type {
         Statement st;
         try {
             st = con.createStatement();
-            ResultSet rs = st.executeQuery("SELECT *  FROM supplier_type");
+            ResultSet rs = st.executeQuery("SELECT *  FROM type");
             while (rs.next())
             {
                 list = typeList.insertTypeList(list, rs.getInt(1), rs.getString(2));
@@ -75,7 +75,7 @@ public class type {
         Statement st;
         try {
             st = con.createStatement();
-            ResultSet rs = st.executeQuery("SELECT *  FROM supplier_type WHERE type_name = '" + type+"'");
+            ResultSet rs = st.executeQuery("SELECT *  FROM type WHERE type_name = '" + type+"'");
             while (rs.next())
             {
                     return rs.getInt(1);
@@ -118,7 +118,7 @@ public class type {
         Statement st;
         try {
             st = con.createStatement();
-            ResultSet rs = st.executeQuery("SELECT COUNT(*) FROM supplier_type");
+            ResultSet rs = st.executeQuery("SELECT COUNT(*) FROM type");
             while (rs.next())
             {
                 count=rs.getInt(1);

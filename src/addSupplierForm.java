@@ -394,7 +394,7 @@ public class addSupplierForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton_not_activeActionPerformed
 
     private void btn_Add_TypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Add_TypeActionPerformed
-        AddTypeForm at = new AddTypeForm();
+        AddTypeForm at = new AddTypeForm(jComboBox_type);
         at.setVisible(true);
         at.pack();
         at.setLocationRelativeTo(this);

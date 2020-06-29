@@ -523,7 +523,7 @@ public class manageClientsForm extends javax.swing.JFrame {
         client c = new client();
         c.insertUpdateDeleteClient('u', p_id, fname, lname, address, mphone, hphone, comments, null);
         clt.fillTableAgain("");
-        
+        MainForm.lbl_Clients_c.setText("Clients count: "+ Integer.toString(MyFunction.countData("client")));
         clenForm();
     }//GEN-LAST:event_btn_EditActionPerformed
 

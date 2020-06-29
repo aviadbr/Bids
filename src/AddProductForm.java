@@ -18,6 +18,8 @@ public class AddProductForm extends javax.swing.JFrame {
      */
     public AddProductForm() {
         initComponents();
+        type.fillTypeComboBox(jComboBox_type);
+        
     }
 
     /**
@@ -172,7 +174,7 @@ public class AddProductForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_Add_TypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Add_TypeActionPerformed
-        AddTypeForm at = new AddTypeForm();
+        AddTypeForm at = new AddTypeForm(jComboBox_type);
         at.setVisible(true);
         at.pack();
         at.setLocationRelativeTo(this);
@@ -195,12 +197,12 @@ public class AddProductForm extends javax.swing.JFrame {
         String tp = String.valueOf(jComboBox_type.getSelectedItem());
         int t_id = type.findTypeID(tp);
 
-        if(p.checkProduct(product_name) == true) //validation checks
+        if(product.checkProduct(product_name, t_id, true) == true) //validation checks
         {
             p.insertProduct(product_name, t_id);
-            this.dispose();
+            this.dispose();          
+            p.fillProductTableAgain("");
             MainForm.lbl_Products_c.setText("Products count: "+ Integer.toString(MyFunction.countData("product")));
-            //s.fillSupplierTableAgain("");
         }
     }//GEN-LAST:event_btn_AddActionPerformed
 
